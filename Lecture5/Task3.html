@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identifier Rules and Errors</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo1"></p>
+    <script>
+        // valid  identifiers 
+        let firstName = "priya";
+        let last_name = "jha";
+         let $age = 19;
+         document.getElementById("demo").innerHTML=firstName;
+         document.getElementById("demo2").innerHTML= last_name;
+         document.getElementById("demo1").innerHTML= $age;
+         
+
+          // invalid identifiers
+        //   let 1stName = priya;
+        //   number  declare "1stName" as a variable results in a SyntaxError
+          
+    </script>
+    
+</body>
+</html>
