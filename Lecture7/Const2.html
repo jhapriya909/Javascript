@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Declaring a constant object does not make object peoperties Unchangeable :</h2>
+
+    <p id="demo"></p>
+
+
+    <script>
+        // Created an Object
+    const car = {type:"Tata", model:"2002", color:"white"};
+
+    
+     
+    car.color = "Red";
+    car.type = "Mahindra"
+
+    document.getElementById("demo").innerHTML= "Your brand of Car is " + car.type;
+    
+
+
+</script>
+</body>
+</html>
