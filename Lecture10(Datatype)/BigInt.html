@@ -1,0 +1,21 @@
+<!-- BigInt bda integer jiska value decimal points me na ho ussi ko bolte hai -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript BigInt</h1>
+    <p>A BigInt can not have decimals</p>
+
+    <p id="demo"></p>
+
+    <script>
+        let x = BigInt("123456789010111213141111111027309478123456789010111213141111111027309478");
+        document.getElementById("demo").innerHTML =x;
+    </script>
+</body>
+</html>
