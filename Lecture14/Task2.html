@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Object Manipulation</title>
+</head>
+
+<body>
+
+    <h2>Student Object Manipulation</h2>
+    <p>Click on the button to remove rollno property</p>
+    <button onclick="removeRollNo()">Remove Roll Number</button>
+    <p id="demo"></p>
+
+    <script>
+        // Student object
+        let student = {
+            name: "Saanvi",
+            age: 16,
+            rollno: 78
+        };
+
+        function removeRollNo() {
+            if (student.hasOwnProperty('rollno')) {
+                delete student.rollno;
+            }
+
+            let result = "Name: " + student.name + "<br>Age: " + student.age;
+            document.getElementById("demo").innerHTML = result;
+        }
+    </script>
+
+</body>
+
+</html>
