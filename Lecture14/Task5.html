@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangle Area & Perimeter</title>
+</head>
+
+<body>
+
+    <h2>Rectangle Area & Perimeter </h2>
+    <p>Click the button to calculate the area and perimeter</p>
+    <button onclick="calculateRectangle()">Calculate</button>
+    <p id="demo"></p>
+
+
+    <script>
+        function Rectangle(width, height) {
+            this.width = width;
+            this.height = height;
+
+            // Method to calculate area
+            this.getArea = function () {
+                return this.width * this.height;
+            };
+
+            // Method to calculate perimeter
+            this.getPerimeter = function () {
+                return 2 * (this.width + this.height);
+            };
+        }
+
+        // Creating a rectangle object
+        const myRectangle = new Rectangle(10, 5);
+
+        console.log("Area:", myRectangle.getArea()); // Output: 50
+        console.log("Perimeter:", myRectangle.getPerimeter()); // Output: 30
+    </script>
+
+</body>
+
+</html>
