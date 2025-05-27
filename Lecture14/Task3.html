@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Properties in Student Object</title>
+</head>
+
+<body>
+
+    <h2>Student Object Property Counter</h2>
+    <p>Click the button to count the number of properties in the student object</p>
+    <button onclick="countProperties()">Count Properties</button>
+    <p id="demo"></p>
+
+    <script>
+        // Student object
+        let student = {
+            name: "Saanvi",
+            age: 16,
+            rollno: 93,
+        };
+
+        function countProperties() {
+            let propertyCount = Object.keys(student).length; // Count properties
+            document.getElementById("demo").innerHTML = "Total Properties: " + propertyCount;
+        }
+    </script>
+
+</body>
+
+</html>
