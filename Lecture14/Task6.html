@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library System</title>
+</head>
+<body>
+    <h1>Library System</h1>
+
+    <input type="text" id="genreInput" placeholder="Enter genre (e.g. Fiction)">
+    <input type="text" id="titleInput" placeholder="Enter book title (e.g. 1984)">
+    <button onclick="getBookDetails()">Get book details</button>
+
+    <p id="bookDetails"></p>
+
+    <script>
+        const library = {
+            Fiction: {
+                "Real world": { author: "George Orwell", year: 1949 },
+                "The Great Bath": { author: "F. Scott Fitzgerald", year: 1925 }
+            },
+            Science: {
+                "A Brief History of Time": { author: "Stephen Hawking", year: 1988 },
+                "Oppenheimer": { author: "J. Oppenheimer", year: 1976 }
+            }
+        };
+// const title = document.getElementById("titleInput").value;
+        function getBookDetails() {
+            const genre = document.getElementById("genreInput").value;
+            const title = document.getElementById("titleInput").value;
+            const bookDetailsElement = document.getElementById("bookDetails");
+
+            if (library[genre] && library[genre][title]) {
+                const book = library[genre][title];
+                bookDetailsElement.innerHTML = `Author: ${book.author}, Year: ${book.year}`;
+            } else {
+                bookDetailsElement.innerHTML = `Book not found in genre "${genre}"`;
+            }
+        }
+    </script>
+</body>
+</html>
