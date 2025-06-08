@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Object Remove</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+            background-color: #E8CBC0;
+        }
+
+        p,
+        button {
+            font-size: 20px;
+            margin: 10px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <h2>Student Object Remove</h2>
+    <p>Click on the button to remove the age property</p>
+    <p id="demo"></p>
+    <button onclick="removeAge()">Remove Age</button>
+
+    <script>
+        let student = {
+            name: "Dhiraj",
+            age: 16,
+            rollno: 78
+        };
+
+        function displayStudent() {
+            let result = "Name: " + student.name + "<br>Age: " + student.age + "<br>Roll Number: " + student.rollno;
+            document.getElementById("demo").innerHTML = result;
+
+        }
+
+        function removeAge() {
+            if (student.hasOwnProperty('age')) {
+                delete student.age;
+            }
+            displayStudent();
+        }
+
+        displayStudent();
+    </script>
+
+
+
+
+</body>
+
+</html>
