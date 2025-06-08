@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Click</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+            background-color: #C4E0E5;
+        }
+
+        p,
+        button {
+            font-size: 20px;
+            margin: 10px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h2>Student Object Remove</h2>
+    <p>Click on the button to remove the age property</p>
+
+<button onclick="deleteBox()">Delete Box</button>
+<div id="box" style="width:100px; height:100px; background-color:palevioletred; margin-top:10px;"></div>
+
+<script>
+    function deleteBox() {
+        const  box = document.getElementById("box");
+        box.remove(); 
+    }
+</script>
+</body>
+</html>
