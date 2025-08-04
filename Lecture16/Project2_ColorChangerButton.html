@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+         body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: Arial;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+ <h1>Background Color Changer</h1>
+    <button onclick="changeColor()">Click Me!</button>
+
+    <script>
+        function changeColor() {
+            // Random color list
+            let colors = ["#203A43", "#4286f4", "#aa4b6b", "#99f2c8", "#eaafc8"];
+            
+            // Random index number
+            let i = Math.floor(Math.random() * colors.length);
+            
+            // Change background color
+            document.body.style.backgroundColor = colors[i];
+        }
+    </script>
+
+</body>
+</html>
+
+    
