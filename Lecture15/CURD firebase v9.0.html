@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read, Write, Update, Delete Data v9.x.x</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 80px;
+        }
+
+        input,
+        select {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <label>Name</label> <input id="Namebox" type="text"><br><br>
+    <label>RollNo</label> <input id="Rollbox" type="text"><br><br>
+    <label>Section</label> <input id="Secbox" type="text"><br><br>
+    <label>Gender</label>
+    <select id="Genbox">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+
+    <hr>
+    <button id="Insbtn">INSERT</button>
+    <button id="Selbtn">SELECT</button>
+    <button id="Upbtn">UPDATE</button>
+    <button id="Delbtn">DELETE</button>
+
+    <!-- Firebase Scripts and Logic -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.0/firebase-app.js";
+        import { getDatabase, ref, set, child, update, remove, get }
+            from "https://www.gstatic.com/firebasejs/11.9.0/firebase-database.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCDh3KRKHF8txt9cC3eQJyEusGtVnJcZlI",
+            authDomain: "fire-c06f9.firebaseapp.com",
+            projectId: "fire-c06f9",
+            storageBucket: "fire-c06f9.appspot.com",
+            messagingSenderId: "465667833892",
+            appId: "1:465667833892:web:efe7921a8c92f19afe98b1"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Input references
+        var namebox = document.getElementById("Namebox");
+        var rollbox = document.getElementById("Rollbox");
+        var secbox = document.getElementById("Secbox");
+        var genbox = document.getElementById("Genbox");
+
+        // Button references
+        var insbtn = document.getElementById("Insbtn");
+        var selbtn = document.getElementById("Selbtn");
+        var upbtn = document.getElementById("Upbtn");
+        var delbtn = document.getElementById("Delbtn");
+
+        // INSERT DATA
+        function InsertData() {
+            set(ref(db, "TheStudents/" + rollbox.value), {
+                NameOFStd: namebox.value,
+                RollNo: rollbox.value,
+                Section: secbox.value,
+                Gender: genbox.value
+            })
+                .then(() => {
+                    alert("Data stored successfully!");
+                })
+                .catch((error) => {
+                    alert("Error storing data: " + error);
+                });
+        }
+
+        // SELECT DATA
+        function SelectData() {
+            const dbRef = ref(db);
+            get(child(dbRef, "TheStudents/" + rollbox.value))
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        namebox.value = snapshot.val().NameOFStd;
+                        secbox.value = snapshot.val().Section;
+                        genbox.value = snapshot.val().Gender;
+                        alert("Data fetched successfully!");
+                    } else {
+                        alert("No data found.");
+                    }
+                })
+                .catch((error) => {
+                    alert("Error fetching data: " + error);
+                });
+        }
+
+        // UPDATE DATA
+        function UpdateData() {
+            update(ref(db, "TheStudents/" + rollbox.value), {
+                NameOFStd: namebox.value,
+                Section: secbox.value,
+                Gender: genbox.value
+            })
+                .then(() => {
+                    alert("Data updated successfully!");
+                })
+                .catch((error) => {
+                    alert("Error updating data: " + error);
+                });
+        }
+
+        // DELETE DATA
+        function DeleteData() {
+            remove(ref(db, "TheStudents/" + rollbox.value))
+                .then(() => {
+                    alert("Data deleted successfully!");
+                    namebox.value = "";
+                    rollbox.value = "";
+                    secbox.value = "";
+                    genbox.value = "Male";
+                })
+                .catch((error) => {
+                    alert("Error deleting data: " + error);
+                });
+        }
+
+        // Event listeners
+        insbtn.addEventListener('click', InsertData);
+        selbtn.addEventListener('click', SelectData);
+        upbtn.addEventListener('click', UpdateData);
+        delbtn.addEventListener('click', DeleteData);
+    </script>
+</body>
+
+</html>
